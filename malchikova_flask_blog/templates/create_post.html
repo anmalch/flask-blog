@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block head %}
+    <style>
+        .form_settings .submit {
+            margin-left: 496px;
+        }
+
+    </style>
+{% endblock head %}
+
+{% block content %}
+    <div class="form_settings">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <p>
+                <span>{{ form.title.label(class="form-control-label") }}</span>
+                {% if form.title.errors %}
+                    {{ form.title(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class="form-control form-control-lg") }}
+                {% endif %}
+
+            </p>
+
+            <p>
+                <span>{{ form.content.label(class="card-text") }}</span>
+                {% if form.content.errors %}
+                    {{ form.content(class="card-text form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="form-control form-control-lg") }}
+                {% endif %}
+
+            </p>
+            <p>
+                <span>&nbsp</span>
+                {{ form.submit(class="submit btn btn-outline-info") }}
+            </p>
+        </form>
+    </div>
+{% endblock content %}

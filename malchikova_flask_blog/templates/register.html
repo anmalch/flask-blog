@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<style>
+    .form_settings .submit {
+        font: 100% arial;
+        border: 1px solid;
+        width: 130px;
+        margin: 0 0 0 180px;
+        height: 33px;
+        padding: 2px 0 3px 0;
+        cursor: pointer;
+        background: #5B7102;
+        color: #FFF;
+    }
+</style>
+{% endblock head %}
+
+{% block content %}
+
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form_settings">
+        <p>
+            <span>{{ form.username.label(class="form-control-label") }}</span>
+            {% if form.username.errors %}
+            {{ form.username(class="form-control form-control-lg is-invalid") }}
+            {% else %}
+            {{ form.username(class="form-control form-control-lg") }}
+            {% endif %}
+
+        </p>
+        {% if form.username.errors %}
+        <p>
+            <span>&nbsp;</span>
+            {% for error in form.username.errors %}
+            {{ error }}
+            {% endfor %}
+        </p>
+        {% endif %}
+
+        <p>
+            <span>{{ form.email.label(class="form-control-label") }}</span>
+            {% if form.email.errors %}
+            {{ form.email(class="form-control form-control-lg is-invalid") }}
+            {% else %}
+            {{ form.email(class="form-control form-control-lg") }}
+            {% endif %}
+        </p>
+        {% if form.email.errors %}
+        <p>
+            <span>&nbsp;</span>
+            {% for error in form.email.errors %}
+            {{ error }}
+            {% endfor %}
+        </p>
+        {% endif %}
+
+        <p>
+            <span>{{ form.password.label(class="form-control-label") }}</span>
+            {% if form.password.errors %}
+            {{ form.password(class="form-control form-control-lg is-invalid") }}
+            {% else %}
+            {{ form.password(class="form-control form-control-lg") }}
+            {% endif %}
+        </p>
+        {% if form.password.errors %}
+        <p>
+            <span>&nbsp;</span>
+            {% for error in form.password.errors %}
+            {{ error }}
+            {% endfor %}
+        </p>
+        {% endif %}
+
+
+        <p>
+            <span>{{ form.confirm_password.label(class="form-control-label") }}</span>
+            {% if form.confirm_password.errors %}
+            {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+            {% else %}
+            {{ form.confirm_password(class="form-control form-control-lg") }}
+            {% endif %}
+        </p>
+        {% if form.confirm_password.errors %}
+        <p>
+            <span>&nbsp;</span>
+            {% for error in form.confirm_password.errors %}
+            {{ error }}
+            {% endfor %}
+        </p>
+        {% endif %}
+
+        <p>
+            <span>&nbsp;</span>
+            {{ form.submit(class="submit btn btn-outline-info") }}
+        </p>
+    </div>
+ </form>
+
+{% endblock content %}

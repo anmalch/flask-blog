@@ -1,7 +1,7 @@
 from flask import render_template, Blueprint
 from malchikova_flask_blog.models import User
 
-#инициализация Blueprint (каркас приложения)
+# Initialization of the Blueprint (application framework)
 main = Blueprint('main', __name__)
 
 

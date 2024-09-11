@@ -7,7 +7,7 @@ from malchikova_flask_blog.config import Config
 from flask_mail import Mail
 
 db = SQLAlchemy()
-# батарейка для авторизации клиентов
+# Battery for client authorization
 login_manager = LoginManager()
 bcrypt = Bcrypt()
 mail = Mail()
@@ -22,7 +22,7 @@ def create_app(config_class=Config):
     bcrypt.init_app(app)
     mail.init_app(app)
 
-    # импорт объекта приложения и его регистрация
+    # Import the application object and register it
     from malchikova_flask_blog.main.routes import main
     from malchikova_flask_blog.users.routes import users
     from malchikova_flask_blog.posts.routes import posts
